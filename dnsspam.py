@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 from dns.resolver import Resolver
 import simplejson as json

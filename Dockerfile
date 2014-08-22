@@ -20,13 +20,13 @@ RUN apt-get update && \
 RUN pip install -r /tmp/dnsspam/requirements.txt
 
 # This will succeed because all the dependencies were installed previously
-RUN pip install /tmp/dnsspam
-RUN rm -rf /tmp/dnsspam
-RUN rm -rf /var/lib/apt/lists/*
+#RUN pip install /tmp/dnsspam
+#RUN rm -rf /tmp/dnsspam
+#RUN rm -rf /var/lib/apt/lists/*
 
 RUN apt-get -y purge perl gcc-4.6 gcc python2.7-dev git python3 \
                      python3-minimal python3.4 python3.4-minimal && \
     apt-get -y autoremove && \
     apt-get clean
 
-CMD [ "/usr/local/bin/dnsspam" ]
+CMD [ "/tmp/dnsspam/dnsspam.py --resolv /tmp/dnsspam/resolv.conf --conf /tmp/dnsspam/conf.json" ]

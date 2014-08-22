@@ -2,6 +2,6 @@
     [
         {"qname": "rackspace.com", "rdtype": "A", "delay": 10, "count": 5},
         {"qname": "google.com", "rdtype": "A", "delay": 10, "count": 5},
-        {"qname": "reddit.com", "rdtype": "A", "delay": 10, "count": 5},
+        {"qname": "reddit.com", "rdtype": "A", "delay": 10, "count": 5}
     ]
 ]

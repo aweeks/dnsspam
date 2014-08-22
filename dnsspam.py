@@ -27,21 +27,36 @@ def init_worker():
 
 def do_query(args, query):
     resolver = Resolver(filename=args.resolv)
+
+    LOG.debug('using nameservers %s', resolver.nameservers)
     
     count = query.get('count', 1)
     delay = query.get('delay', 0)
     qname = query['qname']
     rdtype = query['rdtype']
 
+    error_count = 0
     for n in range(0, count):
         if n % 100 == 0:
             LOG.debug('query: %s %s #%d', qname, rdtype, n)
-        resolver.query(qname, rdtype).rrset.items
+        try:
+            resolver.query(qname, rdtype)
+        except Exception:
+            error_count += 1
         time.sleep(delay/1000.0)
+
+    return count, error_count
 
 def do_parallel_queries(args, pool, queries):
     try:
-        pool.map_async(partial(do_query, args), queries).get(100000000)
+        start = time.time()
+        counts = pool.map_async(partial(do_query, args), queries).get(100000000)
+        duration = time.time() - start
+        
+        success = sum([l[0] for l in counts])
+        error = sum([l[1] for l in counts])
+        LOG.debug('success: %d queries in %f seconds = %f queries/second', success, duration, success/duration)
+        LOG.debug('error: %d queries in %f seconds = %f queries/second', error, duration, error/duration)
     except KeyboardInterrupt:
         pool.terminate()
         sys.exit(1)
@@ -63,3 +78,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    time.sleep(1.0)

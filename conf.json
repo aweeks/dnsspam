@@ -1,7 +1,16 @@
 [
     [
-        {"qname": "rackspace.com", "rdtype": "A", "delay": 10, "count": 5},
-        {"qname": "google.com", "rdtype": "A", "delay": 10, "count": 5},
-        {"qname": "reddit.com", "rdtype": "A", "delay": 10, "count": 5}
+        {"qname": "rackspace.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "google.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "reddit.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "amazon.com", "rdtype": "A", "delay": 0, "count": 1000},
+        
+        {"qname": "rackspace.com", "rdtype": "AAAA", "delay": 0, "count": 1000},
+        {"qname": "google.com", "rdtype": "AAAA", "delay": 0, "count": 1000},
+        
+        {"qname": "google.com", "rdtype": "MX", "delay": 0, "count": 1000},
+        {"qname": "rackspace.com", "rdtype": "MX", "delay": 0, "count": 1000},
+        {"qname": "yahoo.com", "rdtype": "MX", "delay": 0, "count": 1000},
+        {"qname": "amazon.com", "rdtype": "MX", "delay": 0, "count": 1000}
     ]
 ]

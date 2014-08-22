@@ -1,0 +1,16 @@
+[
+    [
+        {"qname": "rackspace.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "google.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "reddit.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "arstechnica.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "rackspace.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "google.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "reddit.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "arstechnica.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "rackspace.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "google.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "reddit.com", "rdtype": "A", "delay": 0, "count": 1000},
+        {"qname": "arstechnica.com", "rdtype": "A", "delay": 0, "count": 1000}
+    ]
+]

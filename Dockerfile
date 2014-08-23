@@ -10,4 +10,5 @@ RUN apt-get update && \
 
 RUN pip install -r /tmp/dnsspam/requirements.txt
 
-CMD [ "/tmp/dnsspam/dnsspam.py", "--resolv", "/tmp/dnsspam/resolv.conf", "--queries", "/tmp/dnsspam/conf.json" ]
+#CMD [ "/tmp/dnsspam/dnsspam.py", "--resolv", "/tmp/dnsspam/resolv.conf", "--queries", "/tmp/dnsspam/conf.json" ]
+CMD [ "/tmp/dnsspam/reactdns.py" ]

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from twisted.internet import reactor
 from twisted.internet import task
 from twisted.names.client import Resolver

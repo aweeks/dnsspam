@@ -21,21 +21,20 @@ def dns_callback(data):
     global success_count
 
     success_count += 1
-    if success_count % 1000 == 0:
+    if success_count % 10000 == 0:
         print 'success: %d' % (success_count,)
 
 def dns_errback(data):
     global fail_count
 
     fail_count += 1
-    if fail_count % 1000 == 0:
+    if fail_count % 10000 == 0:
         print 'error: %d' % (fail_count,)
-
-    pass
 
 def do_query(addr):
     r.lookupAddress(addr).addCallbacks(dns_callback, dns_errback)
-
+    r.lookupMailExchange(addr).addCallbacks(dns_callback, dns_errback)
+    r.lookupPointer(addr).addCallbacks(dns_callback, dns_errback)
 
 def die():
     global success_count
@@ -47,12 +46,11 @@ def die():
     delta = stop_ts - start_ts
     
     print 'success: %d queries in %f seconds = %f queries/second' % (success_count, delta, success_count/delta)
-    print delta
     print 'fail: %d queries in %f seconds = %f queries/second' % (fail_count, delta, fail_count/delta)
 
-ADDRS = ['google.com', 'reddit.com', 'yahoo.com', 'rackspace.com']
+ADDRS = ['google.com', 'reddit.com', 'yahoo.com', 'rackspace.com', 'amazon.com']
 
-for a in islice(cycle(ADDRS), 0, 100):
+for a in islice(cycle(ADDRS), 0, 200):
      task.LoopingCall(partial(do_query, a)).start(0)
 
 reactor.callLater(10, die)
